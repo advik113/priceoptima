@@ -14,6 +14,7 @@ from ml.predict_price import predict_optimal_price
 
 app = Flask(__name__)
 app.config.from_object(Config)
+app.config.update(SESSION_COOKIE_SAMESITE='None', SESSION_COOKIE_SECURE=True)
 # Initialize database with app
 db.init_app(app)
 
@@ -803,10 +804,14 @@ def api_category_distribution():
 # -------------------------------------------------------------
 @app.after_request
 def add_cors_headers(response):
-    """Allows React Vite dev server to communicate with Flask APIs with credentials."""
+    """Allow credentialed requests only from the production Vercel frontend."""
+    allowed_origins = {
+        "https://priceoptima-ulgi.vercel.app",
+    }
     origin = request.headers.get("Origin")
-    if origin:
+    if origin in allowed_origins:
         response.headers["Access-Control-Allow-Origin"] = origin
+        response.headers["Vary"] = "Origin"
         response.headers["Access-Control-Allow-Credentials"] = "true"
         response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
         response.headers["Access-Control-Allow-Headers"] = "Content-Type, Authorization"
@@ -1408,3 +1413,4 @@ if __name__ == "__main__":
     print("   Access at: http://127.0.0.1:5000")
     print("=" * 65 + "\n")
     app.run(debug=True, host="127.0.0.1", port=5000)
+
