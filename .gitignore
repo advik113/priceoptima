@@ -1,0 +1,55 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Environment variables
+.env
+.env.*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Node
+node_modules/
+frontend/node_modules/
+
+# Build files
+dist/
+build/
+
+# IDE
+.vscode/
+
+# Python cache
+.pytest_cache/
+
+# OS
+Thumbs.db
+.DS_Store
+# Database
+*.db
+
+# ZIP files
+*.zip.env
+.env.*
+!.env.example
+!.env.sample
+
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+node_modules/
+frontend/node_modules/
+frontend/dist/
+dist/
+
+*.bak
+*.log
+.pytest_cache/
+.mypy_cache/
+
+instance/
