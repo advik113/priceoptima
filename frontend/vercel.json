@@ -1,0 +1,24 @@
+﻿{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://priceoptima-o9lw.onrender.com/api/:path*"
+    },
+    {
+      "source": "/login",
+      "destination": "https://priceoptima-o9lw.onrender.com/login"
+    },
+    {
+      "source": "/register",
+      "destination": "https://priceoptima-o9lw.onrender.com/register"
+    },
+    {
+      "source": "/logout",
+      "destination": "https://priceoptima-o9lw.onrender.com/logout"
+    },
+    {
+      "source": "/((?!assets/|favicon.ico).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
