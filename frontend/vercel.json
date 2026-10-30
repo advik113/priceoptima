@@ -15,10 +15,6 @@
     {
       "source": "/logout",
       "destination": "https://priceoptima-o9lw.onrender.com/logout"
-    },
-    {
-      "source": "/((?!assets/|favicon.ico).*)",
-      "destination": "/index.html"
     }
   ]
 }
